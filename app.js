@@ -58,6 +58,12 @@ const popItem = () => items.pop();
 // removes first item from the array
 const removeFirstItem = () => items.shift();
 
+// delete all items
+const clearArray = (arr) => arr.length = 0; 
+
+//shuffle items in the array
+const shuffleArray = (arr) => arr.sort(()=>Math.random() - 0.5);
+
 
 
 randomIndex();
@@ -65,17 +71,22 @@ randomIndex();
 //addItemToBegin(randomIndex());
 //addItem(randomIndex());
 
-items.forEach(i => console.log(i))
+//items.forEach(i => console.log(i))
 //popItem();
 //removeFirstItem();
 //console.log(items)
 //console.log(insertItem(0,0,2))
 
+
+
 for (let i = 0; i <= 6; i++) {
   addItem(i);
 }
+console.log(items)
 console.log(removeFirstItem())
 console.log(items)
+//clearArray(items)
+console.log(shuffleArray(items))
 
 
 
