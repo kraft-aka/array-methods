@@ -50,7 +50,10 @@ const randomIndex = () => Math.floor(Math.random() * emojisArray.length);
 const addItemToBegin = (i) => items.unshift(emojisArray[i]);
 
 // insert items to specific index // should be revised
-const insertItem = (index, i) => items.splice(index, 0, i);
+// const insertItem = (arr,index,el) => arr.splice(index-1, 0, el);
+// ar = [1,2,3,4,5]
+// let x = ar.splice(0,3,)
+// console.log(x)
 
 // removes last item from the array
 const popItem = () => items.pop();
