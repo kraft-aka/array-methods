@@ -4,11 +4,31 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
   <title>Document</title>
 </head>
 <body>
-  <div>
-    <h1>Hi</h1>
+  <div class="container">
+    <form action="" class="add-to-array">
+      <h2>Add to Array</h2>
+      <button id="push-item">push</button>
+      <button id="unshift-item">unshift</button>
+      <button id="insert-item">insert</button>
+      <input type="number" min="1" id="num">
+    </form>
+    <form action="" class="delete-from-array">
+      <h2>Delete from Array</h2>
+      <button id="pop-item">pop</button>
+      <button id="shift-item">shift</button>
+      <button id="delete-all-items">delete all</button>
+      <button id="delete-one-item">delete item</button>
+      <input type="number" min="1" id="num-delete">
+    </form>
+    <form action="" class="shuffle-items">
+      <h2>Shuffle Array</h2>
+      <button id="shuffle-array">schuffle</button>
+    </form>
+    <p id="output">output []</p>
   </div>
   <script src="app.js"></script>
 </body>

@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Neucha', cursive;
+  font-size: 18px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Layout */
+.container {
+  margin: 8% auto;
+  display: flex;
+  justify-content:space-around;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 2em;
+  padding: 2em 4.5em;
+  width: 30%;
+  box-shadow: 10px 10px 14px rgba(0,0,0,0.25);
+}
+
+form {
+  width: 100%;
+  padding: 0 4rem;
+}
+
+input {
+  display: block;
+  width: 3rem;
+  height: 1.5rem;
+  padding: 0.5em;
+  border: none;
+  outline: none;
+  border-radius: .3em;
+  background-color: lightgray;
+  margin-bottom: 1em;
+
+}
+
+/* Buttons */
+button {
+  font-size: 1.2rem;
+  padding: 0.5em 1.5em;
+  border-radius: .3em;
+  border: none;
+  background-color: #5dbea3;
+  color: #fff;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  transition: all .4s ease-in;
+}
+
+button:hover,
+button:focus {
+  cursor: pointer;
+  background-color: #5783db;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.25);
+}
+
+
