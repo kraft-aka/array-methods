@@ -1,6 +1,18 @@
 const output = document.querySelector("#output");
+const output2 = document.querySelector("#output-2");
+
 const pushBtn = document.querySelector("#push-item");
 const popBtn = document.querySelector("#pop-item");
+const shiftBtn = document.querySelector("#shift-item");
+const unshiftBtn = document.querySelector("#unshift-item");
+const clearAllBtn = document.querySelector("#delete-all-items");
+const shuffleBtn = document.querySelector('#shuffle-array');
+const insertBtn = document.querySelector('#insert-item');
+const deleteItemBtn = document.querySelector('#delete-one-item');
+
+const insertIndex = document.querySelector('#num');
+const deleteIndex = parseInt(document.querySelector('#num-delete').value);
+
 
 const items = [];
 
@@ -42,19 +54,29 @@ const emojisArray = [
   "😚",
 ];
 
+
+// checks if the array is empty
+if (items.length === 0) {
+  output.innerHTML = "[ Array is empty. Add new items! ]";
+}
 // pushs items to an array
 const addItem = (e) => {
   e.preventDefault();
   let i = randomIndex();
   items.push(emojisArray[i]);
-  output.innerHTML = `[ ${items.join(" ")}]`;
+  output.innerHTML = `[ ${items.join("")}]`;
 };
 
 // generates random index
 const randomIndex = () => Math.floor(Math.random() * emojisArray.length);
 
 // adds items to the the beginning of the array
-const addItemToBegin = (i) => items.unshift(emojisArray[i]);
+const addItemToBegin = (e, i) => {
+  e.preventDefault();
+  i = randomIndex();
+  items.unshift(emojisArray[i]);
+  output.innerHTML = `[ ${items.join("")}]`;
+};
 
 // insert items to specific index // should be revised
 // const insertItem = (arr,index,el) => arr.splice(index-1, 0, el);
@@ -66,28 +88,40 @@ const addItemToBegin = (i) => items.unshift(emojisArray[i]);
 const popItem = (e) => {
   e.preventDefault();
   items.pop();
-  output.innerHTML = `[ ${items.join(" ")}]`;
-
-  if (items.length === 0) {
-    output.innerHTML = "[ Array is empty.Add new items]";
-  }
+  output.innerHTML = `[ ${items.join("")}]`;
 };
 
 // removes first item from the array
-const removeFirstItem = () => items.shift();
+const removeFirstItem = (e) => {
+  e.preventDefault();
+  items.shift();
+  output.innerHTML = `[ ${items.join("")}]`;
+};
 
 // delete all items
-const clearArray = (arr) => (arr.length = 0);
+const clearArray = (e) => {
+  e.preventDefault();
+  items.length = 0;
+  output.innerHTML = `[ ${items}]`;
+};
+
 
 //shuffle items in the array
-const shuffleArray = (arr) => arr.sort(() => Math.random() - 0.5);
+const shuffleArray = (e) => {
+  e.preventDefault();
+  items.sort(() => Math.random() - 0.5)
+  output.innerHTML = `[ ${items.join('')}]`;
+};
 
 //const filterItem = (arr, val) => arr.filter(i => i != val);
 
 // deletes one item from a given index
-const deleteOneItem = (arr, i) => {
-  arr.splice(i - 1, 1);
-  return arr;
+const deleteOneItem = (e) => {
+  e.preventDefault();
+  if (deleteIndex > -1) {
+    items.splice(deleteIndex - 1,1);
+  }
+  output.innerHTML = `[ ${items.join('')}]`
 };
 
 //addItemToBegin(randomIndex());
@@ -113,3 +147,8 @@ const deleteOneItem = (arr, i) => {
 // event listeners
 pushBtn.addEventListener("click", addItem);
 popBtn.addEventListener("click", popItem);
+shiftBtn.addEventListener("click", removeFirstItem);
+unshiftBtn.addEventListener("click", addItemToBegin);
+clearAllBtn.addEventListener('click', clearArray);
+shuffleBtn.addEventListener('click', shuffleArray);
+deleteItemBtn.addEventListener('click', deleteOneItem);
