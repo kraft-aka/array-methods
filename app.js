@@ -1,6 +1,9 @@
 const output = document.querySelector("#output");
 const output2 = document.querySelector("#output-2");
 
+const container = document.querySelector('.container');
+const body = document.querySelector('body');
+
 const pushBtn = document.querySelector("#push-item");
 const popBtn = document.querySelector("#pop-item");
 const shiftBtn = document.querySelector("#shift-item");
@@ -9,6 +12,7 @@ const clearAllBtn = document.querySelector("#delete-all-items");
 const shuffleBtn = document.querySelector('#shuffle-array');
 const insertBtn = document.querySelector('#insert-item');
 const deleteItemBtn = document.querySelector('#delete-one-item');
+const darkModeBtn = document.querySelector('#btn-dark-mode');
 
 const insertIndex = document.querySelector('#num');
 const deleteIndex = parseInt(document.querySelector('#num-delete').value);
@@ -152,3 +156,9 @@ unshiftBtn.addEventListener("click", addItemToBegin);
 clearAllBtn.addEventListener('click', clearArray);
 shuffleBtn.addEventListener('click', shuffleArray);
 deleteItemBtn.addEventListener('click', deleteOneItem);
+darkModeBtn.addEventListener('click', (e)=> {
+  e.preventDefault();
+  container.classList.toggle('dark-mode');
+  darkModeBtn.innerHTML = container.classList.contains('dark-mode') ? 'light mode' : 'dark mode';
+  body.style.backgroundColor = container.classList.contains('dark-mode') ? '#A700AF': '';
+})
