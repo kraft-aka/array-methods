@@ -1,22 +1,21 @@
 const output = document.querySelector("#output");
 const output2 = document.querySelector("#output-2");
 
-const container = document.querySelector('.container');
-const body = document.querySelector('body');
+const container = document.querySelector(".container");
+const body = document.querySelector("body");
 
 const pushBtn = document.querySelector("#push-item");
 const popBtn = document.querySelector("#pop-item");
 const shiftBtn = document.querySelector("#shift-item");
 const unshiftBtn = document.querySelector("#unshift-item");
 const clearAllBtn = document.querySelector("#delete-all-items");
-const shuffleBtn = document.querySelector('#shuffle-array');
-const insertBtn = document.querySelector('#insert-item');
-const deleteItemBtn = document.querySelector('#delete-one-item');
-const darkModeBtn = document.querySelector('#btn-dark-mode');
+const shuffleBtn = document.querySelector("#shuffle-array");
+const insertBtn = document.querySelector("#insert-item");
+const deleteItemBtn = document.querySelector("#delete-one-item");
+const darkModeBtn = document.querySelector("#btn-dark-mode");
 
-const insertIndex = document.querySelector('#num');
-const deleteIndex = parseInt(document.querySelector('#num-delete').value);
-
+const insertIndex = document.querySelector("#num");
+const deleteIndex = parseInt(document.querySelector("#num-delete").value);
 
 const items = [];
 
@@ -58,11 +57,16 @@ const emojisArray = [
   "😚",
 ];
 
-
 // checks if the array is empty
 if (items.length === 0) {
   output.innerHTML = "[ Array is empty. Add new items! ]";
 }
+
+// checks the length of the array
+const checkLengthOfArray = (arr) => {
+  arr.length ? alert("There are 10 items in the array") >= 10 : "";
+};
+
 // pushs items to an array
 const addItem = (e) => {
   e.preventDefault();
@@ -109,12 +113,11 @@ const clearArray = (e) => {
   output.innerHTML = `[ ${items}]`;
 };
 
-
 //shuffle items in the array
 const shuffleArray = (e) => {
   e.preventDefault();
-  items.sort(() => Math.random() - 0.5)
-  output.innerHTML = `[ ${items.join('')}]`;
+  items.sort(() => Math.random() - 0.5);
+  output.innerHTML = `[ ${items.join("")}]`;
 };
 
 //const filterItem = (arr, val) => arr.filter(i => i != val);
@@ -123,9 +126,9 @@ const shuffleArray = (e) => {
 const deleteOneItem = (e) => {
   e.preventDefault();
   if (deleteIndex > -1) {
-    items.splice(deleteIndex - 1,1);
+    items.splice(deleteIndex - 1, 1);
   }
-  output.innerHTML = `[ ${items.join('')}]`
+  output.innerHTML = `[ ${items.join("")}]`;
 };
 
 //addItemToBegin(randomIndex());
@@ -153,12 +156,16 @@ pushBtn.addEventListener("click", addItem);
 popBtn.addEventListener("click", popItem);
 shiftBtn.addEventListener("click", removeFirstItem);
 unshiftBtn.addEventListener("click", addItemToBegin);
-clearAllBtn.addEventListener('click', clearArray);
-shuffleBtn.addEventListener('click', shuffleArray);
-deleteItemBtn.addEventListener('click', deleteOneItem);
-darkModeBtn.addEventListener('click', (e)=> {
+clearAllBtn.addEventListener("click", clearArray);
+shuffleBtn.addEventListener("click", shuffleArray);
+deleteItemBtn.addEventListener("click", deleteOneItem);
+darkModeBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  container.classList.toggle('dark-mode');
-  darkModeBtn.innerHTML = container.classList.contains('dark-mode') ? 'light mode' : 'dark mode';
-  body.style.backgroundColor = container.classList.contains('dark-mode') ? '#A700AF': '';
-})
+  container.classList.toggle("dark-mode");
+  darkModeBtn.innerHTML = container.classList.contains("dark-mode")
+    ? "light mode"
+    : "dark mode";
+  body.style.backgroundColor = container.classList.contains("dark-mode")
+    ? "#A700AF"
+    : "";
+});
